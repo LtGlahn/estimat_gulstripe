@@ -7,14 +7,14 @@ Hvis data om vegene våre var perfekt og komplett registrert i Nasjonal vegdatab
 registrert data om midtstripe, 
 midtrekkverk eller midtdeler. 
 
-Dessverre har vi mye veger der vi mangler oppdaterte data om den fysiske tilstanden på vegoppmerking og andre ting. 
+Dessverre har vi mye veger der vi våre data om den fysiske tilstanden på vegoppmerking og andre ting er mangelfulle. 
 
 Det nest beste er å lage et estimat hvor vi gjør det beste ut av de dataene vi har og kvalitetssikrer dette manuelt 
 så godt vi kan - innen den tiden 
 og med den arbeidskraften vi har til rådighet. 
 
 > Ideelt sett bør vi også bygge en løype der man ikke trenger gjenta all manuell 
-kvalitetssikring hver gang man oppdaterer analysen. En slik kvalitetssikring bør kunne gjenbrukes og utvides. på en god og gjenbrukbar måte._
+kvalitetssikring hver gang man oppdaterer analysen. En slik kvalitetssikring bør kunne gjenbrukes og utvides. på en god og gjenbrukbar måte.
 
 ### Datagrunnlag
 
@@ -35,7 +35,7 @@ Vi henter selvsagt kun data langs europa- og riksveger, dvs med filteret _vegsys
 ![alt text](./pic/overordnet_dataflyt.png)
 
   * **HENT DATA** Vi leser data fra NVDB (python + geopandas, `hentnvdbdata.py`)
-  * **AUTOMATISERT PROSESSFLYT MED ITERATIV MANUELL KVALITETSFORBEDRING** Etter litt eksperimentering fant jeg fram til en god, iterativ arbeidsprosess der automatisk prosessering (FME) gradvis blir forsterket med manuelt opprettede kartlag som overstyrer automatikken i de områdene der den åpenbart feiler (pga utilstrekkelig datagrunnlag). 
+  * **AUTOMATISERT PROSESSFLYT MED ITERATIV MANUELL KVALITETSFORBEDRING** Etter litt eksperimentering fant jeg fram til en god, iterativ arbeidsprosess der automatisk prosessering (FME) gradvis blir forsterket med manuelt opprettede kartlag som overstyrer automatikken i de områdene der den åpenbart feiler (pga mangelfullt datagrunnlag). 
     * Kjør FME-prosessen `vegbredder.fmw` 
         * Vi tar vegnettsdata og klipper vekk de bitene av vegnettet som overlapper med midtrekkverk, midtdeler og gulstripe. 
       * Vi tar vegbreddedata som er 6 meter eller smalere og "tagger" de veglenkebitene som overlapper med dem. 
@@ -45,8 +45,8 @@ Vi henter selvsagt kun data langs europa- og riksveger, dvs med filteret _vegsys
     * Gjenta inntil du er fornøyd med resultatet fra FME-rutina
     * Fordelen med denne måten å jobbe på er at de manuelle vurderingene blir gjenbrukbare og etterprøvbare, samtidig som vi har en automatisert dataproduksjon. 
 * **PUBLISER** 
-  * Konverter til fil-geodatabase (.gdb, med FME) og publiser til https://arcg.is/1GbK98 (fem enkle klikk via Arcgis Pro).  
-  * Trekk ut statistikk med python pandas (groupby-funksjon, summer lengde per fylke evt per kommune)
+  * Konverter til fil-geodatabase (.gdb, med FME) og publiser til https://arcg.is/1GbK98 _(fem enkle klikk via Arcgis Pro)_.  
+  * Trekk ut statistikk med python pandas _(bruk groupby-funksjon, summer lengde per fylke evt per kommune)_
 
 Eksempel på en bit av E16 med falske positive, ekskludert med en flate i kartlaget `manuell.gpkg/eksluder`, manuelt opprettet med Qgis.
 
