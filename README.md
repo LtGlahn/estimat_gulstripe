@@ -53,6 +53,7 @@ Eksempel på en bit av E16 med falske positive, ekskludert med en flate i kartla
 ![alt text](./pic/E16ekskluder.png)
 
 Eksempel på bit av E16 der det er _(eller iallfall var, per desember 2020)_ en lengre sammenhengende strekning uten gulstripe, men vi fikk kun noen flekkvise treff i FME analyserutina. Via manuelt opprettede flater i `manuell.gpkg/inkluder` kan vi overstyre slik at hele strekningen blir med i resultatene.  
+
 ![alt text](./pic/E16inkluder.png)
 
 Vegbilde eksempel, viser overgangen mellom gulstripe og ingen midtstripe på E16 ved Jevnaker, juni 2020.
